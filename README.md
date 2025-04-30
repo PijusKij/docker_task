@@ -1,9 +1,92 @@
-# docker_task
-1. stat_tests_simulation.py was developed, which calculates the power of three different tests for different samples with generated data. Output is the graph called power_plot.png. Code is explained in more detail in code file.
-2. requirements.txt has been developed, as it is not computationally complex code, only 3 libraries were needed for the code. Library version was specified too.
-3. Dockerfile has beent created. It uses python:3.11-slim version for faster building and deployment. Working directory is set to /app in the container. I copied the requirements.txt file from local machine to the /app directory and installed all libraries specified. Copied rest of the files from the local machine and ran the stat_tests_simulation.py.
-4. All files were put into a single folder stats-project in my local machine - for the purpose of copying only them to the container.
-5. moved to my stats-project folder in terminal and ran docker run --rm stats-project . - docker builds the stats-project image and looks for the Dockerfile in the folder.
-6. docker images was run to ensure that the image i wanted has been created
-7. docker run --rm -v "$PWD:/app" stats-project - running the container, "$PWD:/app" was used so that i could locally change files without the need to create new image.
-8. docket container runs and output graph is automatically stored in my local folder "stats-project".
+# 📦 Docker Task: Power Simulation for Statistical Tests
+
+Original writeup (first README.md commit) has been changed by AI to have nice structure, formatting and emojis.
+
+---
+
+## 🧪 1. `stat_tests_simulation.py`
+
+This script calculates the power of three different statistical tests across various sample sizes using generated data.
+
+- **Output**: `power_plot.png` (a graph showing power curves)
+- The script is fully documented with inline comments.
+
+---
+
+## 📄 2. `requirements.txt`
+
+- Contains only three essential libraries to keep the environment lightweight.
+- Library versions are pinned for reproducibility and compatibility.
+
+---
+
+## 🐳 3. `Dockerfile`
+
+The Dockerfile defines the build process using the `python:3.11-slim` base image for efficiency.
+
+Steps:
+1. Set the working directory to `/app`.
+2. Copy `requirements.txt` and install dependencies.
+3. Copy the remaining project files.
+4. Set the default command to run `stat_tests_simulation.py`.
+
+---
+
+## 📁 4. Folder Structure
+
+All project files are placed inside a single folder named `stats-project`:
+
+```text
+stats-project/
+├── Dockerfile
+├── requirements.txt
+├── stat_tests_simulation.py
+└── power_plot.png
+```
+
+---
+
+## 🔍 Step 5: Build Docker Image and Verify it
+
+Moved to the project directory:
+
+```bash
+cd stats-project
+```
+
+Then ran:
+
+```bash
+docker run --rm stats-project .
+```
+This command builds the `stats-project` image and uses the `Dockerfile` found in the current folder.
+
+Checked if the image was created successfully by running:
+
+```bash
+docker images
+```
+
+This lists all Docker images, including `stats-project`.
+
+---
+
+## 🚀 Step 6: Run the Docker Container
+
+Executed the container with volume mounting:
+
+```bash
+docker run --rm -v "$PWD:/app" stats-project
+```
+
+Here, `"$PWD:/app"` mounts your current directory to the container’s `/app` folder, so you can edit files locally without rebuilding the image.
+
+---
+
+## 📊 Step 7: Check the Output
+
+The Docker container runs and automatically stores the output graph in your local folder:
+
+```
+stats-project/
+```
