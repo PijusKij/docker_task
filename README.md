@@ -40,8 +40,7 @@ All project files are placed inside a single folder named `stats-project`:
 stats-project/
 ├── Dockerfile
 ├── requirements.txt
-├── stat_tests_simulation.py
-└── power_plot.png
+└── stat_tests_simulation.py
 ```
 
 ---
@@ -90,3 +89,24 @@ The Docker container runs and automatically stores the output graph in your loca
 ```
 stats-project/
 ```
+
+---
+
+## Step 8: Image Publicly Available
+
+Tagged my image:
+
+```bash
+docker tag stats-project:latest pijue/stats-project:latest
+```
+Pushed it to DockerHub:
+
+```bash
+docker push pijue/stats-project:latest
+```
+
+Image is available with the tag:
+```
+pijue/stats-project:latest
+```
+
